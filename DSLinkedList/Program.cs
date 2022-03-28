@@ -7,16 +7,16 @@ namespace DataStructureProblems
 /// </summary>
     class Program
     {/// <summary>
-    /// UC1 - Insert a element at last in linked list
-    /// </summary>
+     /// UC2 - inserting elements at front in linked list
+     /// </summary>
 
         static void Main(string[] args)
         {
             LinkedList<int> myList = new LinkedList<int>();
-            myList.Add(56);
-            myList.Add(30);
             myList.Add(70);
-            myList.Display();
+            myList.Add(30);
+            myList.Add(56);
+
         }
     }
 }

@@ -9,11 +9,11 @@ namespace DataStructureProblems
         public void Add(Gtype data)
         {
             //variable
-            //store the count in temp  variable
+            //store the count in the temp_node 
             Node<Gtype> temp_node;
 
             //creating new node with data
-            Node<Gtype>node = new Node<Gtype>(data);
+            Node<Gtype> node = new Node<Gtype>(data);
 
             //there is no node 
             if (head == null)
@@ -32,34 +32,9 @@ namespace DataStructureProblems
                 {
                     temp_node = temp_node.next;
                 }
+                //adding the node to next variable
                 temp_node.next = node;
             }
         }
-
-        public void Display()
-        {
-            if (head is null)
-            {
-                Console.WriteLine("List is empty..");
-                return;
-            }
-            else
-            {
-                //created temp variable and the node display start from head 
-                Node<Gtype> temp_node = head;
-                //displaying head as we had head value 
-                Console.WriteLine(temp_node.value);
-                //display upto ---> node is not equal to null
-                while (temp_node.next != null)
-                {
-                    Console.WriteLine(temp_node.next.value);
-                    temp_node = temp_node.next;
-                }
-            }
-        }
-    }
-
-
-
-    
+    }  
 }
