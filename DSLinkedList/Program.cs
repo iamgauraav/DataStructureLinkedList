@@ -7,7 +7,7 @@ namespace DataStructureProblems
 /// </summary>
     class Program
     {/// <summary>
-     /// UC2 - inserting elements at front in linked list
+     /// UC2 - Inserting elements at front in linked list
      /// </summary>
 
         static void Main(string[] args)
