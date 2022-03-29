@@ -7,7 +7,7 @@ namespace DataStructureProblems
 /// </summary>
     class Program
     {/// <summary>
-     /// UC5 - Delete First element  of linked list
+     /// UC5 - Delete First element  of linked list Using pop
      /// </summary>
 
         static void Main(string[] args)
