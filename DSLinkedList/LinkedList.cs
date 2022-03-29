@@ -4,101 +4,50 @@ namespace DataStructureProblems
 {
     internal class LinkedList<Gtype>
     {
-        Node<Gtype> head = null;
+        //variable
+        Node<Gtype> top;
 
-        public void Add(Gtype data)
+        //Using Constructor
+
+        public LinkedList()
         {
-            //variable
-            //store the count in the temp_node 
-            Node<Gtype> temp_node;
-
-            //creating new node with data
+            this.top = null;
+        }
+        //method to push element in stack
+        public void push(Gtype data)
+        {
+            //create node
             Node<Gtype> node = new Node<Gtype>(data);
-
-            //there is no node 
-            if (head == null)
+            //If top is null mark it as node,there is no linking
+            if (top is null)
             {
-                //if there is no element so first one is head
-                head = node;
-                //close the executaion of the function
-                return;
+                top = node;
             }
-            else
+            else //make new node--> link with top---> mark it top
             {
-                //count start from head
-                temp_node = head;
-                //checking for null
-                while (temp_node.next != null)
-                {
-                    temp_node = temp_node.next;
-                }
-                //adding the node to next variable
-                temp_node.next = node;
+                //linking 
+                node.next = top;
+                //mark it as a top
+                top = node;
             }
         }
 
-        public void InsertMid(Gtype data, int pos)
+        public void Show()
         {
-            //variable
-            //created temp variable
-            Node<Gtype> temp_node = head;
-            int size = Size();
-            // Checking limitation --->can not go maximum size(size + 1 ) or less than zero position
-            if (pos > size + 1 || pos < 1)
+            //start from top and traverse upto last
+            Node<Gtype> temp_top = top;
+
+            while (temp_top.next != null)
             {
-                Console.WriteLine("Invalid position");
-                return;
+                Console.WriteLine(temp_top.value + " ");
+                temp_top = temp_top.next;
             }
-
-            //create node
-            Node<Gtype> node = new Node<Gtype>(data);
-
-            if (head == null)
-            {
-                Console.WriteLine("List is Empty");
-                if (pos == 1)
-                {
-                    head = node;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid position");
-                }
-            }
-            else
-            {
-                //if you want to make the element at first only means head
-                if (pos == 1)
-                {
-                    //linking element
-                    node.next = head;
-                    head = node;
-                }
-                else
-                {
-                    //count 2 because we have head position as 1 so count start from 2
-                    int count = 2;
-                    //go upto the position where we want to add
-                    //if we want to other than head than
-                    //so less than position
-                    while (pos > count)
-                    {
-                        temp_node = temp_node.next;
-                        count++;
-                    }
-                    //made a new temp node to store unlinked elemaent
-                    Node<Gtype> temp_node2 = temp_node.next;
-                    temp_node.next = node;
-                    node.next = temp_node2;
-                }
-            }
-
-
+            Console.WriteLine(temp_top.value);
         }
 
         public bool IsEmpty()
         {
-            if (head is null) return true;
+            if (top is null) return true;
             else return false;
         }
 
@@ -106,68 +55,73 @@ namespace DataStructureProblems
         {
             if (IsEmpty())
             {
-                Console.WriteLine("Stack is empty");
+                Console.WriteLine("Stack is Empty");
                 return default(Gtype);
             }
-            else if(head.next is null)
+            //stack has one element  --> remove the element
+            else if (top.next is null)
             {
-                head = null;
+
+                top = null;
+
             }
-            else
+            else // remove top and assign top as  next element 
             {
-                head = head.next;
+
+                top = top.next;
+
             }
             return default(Gtype);
         }
 
-        public int Size()
+        public void pop_pos(int pos)
         {
-            if (head is null)
-            {
-                Console.WriteLine("List is Empty..");
-                return 0;
-            }
-            else
-            {
-                //we had head pposition so count start from 1
-                int count = 1;
-                //created temp variable
-                //the node start from head
-                Node<Gtype> temp_node = head;
-                //display upto ---> node is not equal to null
-                while (temp_node.next != null)
-                {
-                    count++;
-                    Console.WriteLine(temp_node.next.value);
-                    //go upto next element otherwise the loop will always take head
-                    temp_node = temp_node.next;
-                }
-                return count;
-            }
-        }
+            //variable
+            int length = Size();
+            //user is giving the position from uper side
+            //so we need to go to that position so length - pos -1
+            pos = length - pos - 1;
+            Node<Gtype> temp_node;
+            Node<Gtype> temp;
 
-        public void Display()
-        {
-            if (head is null)
+            if (pos < 0 || pos >= length)
             {
-                Console.WriteLine("List is Empty..");
+                Console.WriteLine("Index out of Boundary");
                 return;
             }
-            else
+            temp_node = top;
+            //if in stack we have one element so to remove it
+            if (top.next is null)
             {
-                //created temp variable and the node display start from head 
-                Node<Gtype> temp_node = head;
-                //displaying head as we had head value
-                Console.WriteLine(temp_node.value);
-                //display upto ---> node is not equal to null
-                while (temp_node.next != null)
-                {
-                    Console.WriteLine(temp_node.next.value);
-                    //go upto next element otherwise the loop will always take head
-                    temp_node = temp_node.next;
-
-                }
+                top = null; return;
             }
+            //remove the top and and change top position 
+            if (pos == 0) top = temp_node.next;
+            //traverse upto just before element and remove it
+            for (int i = 1; i < pos; i++) temp_node = temp_node.next;
+            temp = temp_node.next;
+            temp_node.next = temp.next;
         }
+
+        public int Size()
+        {
+            //temp variable
+            Node<Gtype> temp;
+            int count = 0;
+            //check that stack is empty or not
+            if (IsEmpty()) return 0;
+            //traverse and count the element in the stack
+            temp = top;
+            count++;
+
+            while (temp.next != null)
+            {
+                count++;
+                temp = temp.next;
+
+            }
+            return count;
+        }
+       
     }  
 }
