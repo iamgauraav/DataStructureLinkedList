@@ -96,6 +96,30 @@ namespace DataStructureProblems
 
         }
 
+        public bool IsEmpty()
+        {
+            if (head is null) return true;
+            else return false;
+        }
+
+        public Gtype Pop()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Stack is empty");
+                return default(Gtype);
+            }
+            else if(head.next is null)
+            {
+                head = null;
+            }
+            else
+            {
+                head = head.next;
+            }
+            return default(Gtype);
+        }
+
         public int Size()
         {
             if (head is null)
@@ -121,6 +145,7 @@ namespace DataStructureProblems
                 return count;
             }
         }
+
         public void Display()
         {
             if (head is null)

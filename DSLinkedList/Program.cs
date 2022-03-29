@@ -7,7 +7,7 @@ namespace DataStructureProblems
 /// </summary>
     class Program
     {/// <summary>
-     /// UC4 - Inserting elements in middle of linked list
+     /// UC5 - Delete First element  of linked list
      /// </summary>
 
         static void Main(string[] args)
@@ -19,6 +19,9 @@ namespace DataStructureProblems
             myList.Display();
             myList.InsertMid(30, 2);
             Console.WriteLine("Linked list after Insertion:");
+            myList.Display();
+            Console.WriteLine("After pop Method");
+            myList.Pop();
             myList.Display();
 
 
