@@ -36,5 +36,29 @@ namespace DataStructureProblems
                 temp_node.next = node;
             }
         }
+
+        public void Display()
+        {
+            if (head is null)
+            {
+                Console.WriteLine("List is Empty..");
+                return;
+            }
+            else
+            {
+                //created temp variable and the node display start from head 
+                Node<Gtype> temp_node = head;
+                //displaying head as we had head value
+                Console.WriteLine(temp_node.value);
+                //display upto ---> node is not equal to null
+                while (temp_node.next != null)
+                {
+                    Console.WriteLine(temp_node.next.value);
+                    //go upto next element otherwise the loop will always take head
+                    temp_node = temp_node.next;
+
+                }
+            }
+        }
     }  
 }

@@ -7,16 +7,17 @@ namespace DataStructureProblems
 /// </summary>
     class Program
     {/// <summary>
-     /// UC2 - Inserting elements at front in linked list
+     /// UC3 - Inserting elements by appending in  linked list
      /// </summary>
 
         static void Main(string[] args)
         {
             LinkedList<int> myList = new LinkedList<int>();
-            myList.Add(70);
-            myList.Add(30);
             myList.Add(56);
+            myList.Add(30);
+            myList.Add(70);
 
+            myList.Display();
         }
     }
 }
