@@ -162,5 +162,43 @@ namespace DataStructureProblems
                 }
             }
         }
+
+        public void Remove(int pos)
+        {
+            //variable
+            //created temp node
+            Node<Gtype> temp_node = head;
+            //calling size method
+            int size = Size();
+            // can not go maximum size(size + 1 ) or less than zero position
+            if (pos > size + 1 || pos < 1)
+            {
+                Console.WriteLine("Invalid position");
+                return;
+            }
+
+            //if you want ot make it head or add at first position
+            if (pos == 1)
+            {
+                //if we want to change head than make next as head 
+                head = temp_node.next;
+            }
+            else
+            {
+                //count 2 because we have head position as 1 so count start from 2
+                int count = 2;
+                //go upto the position where we want to add
+                //if we want to other than head than 
+                while (pos > count)
+                {
+                    temp_node = temp_node.next;
+                    count++;
+                }
+                //made a new temp node to store unlinked elemaent
+                //go to next next means ahead of removing  element
+                Node<Gtype> temp_node2 = temp_node.next.next;
+                temp_node.next = temp_node2;
+            }
+        }
     }  
 }

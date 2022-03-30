@@ -7,7 +7,7 @@ namespace DataStructureProblems
 /// </summary>
     class Program
     {/// <summary>
-     /// UC8 - Adding element in between in LinkedList 
+     /// UC9 - Deleting element in between in LinkedList 
      /// </summary>
 
         static void Main(string[] args)
@@ -16,10 +16,13 @@ namespace DataStructureProblems
             myList.Add(56);
             myList.Add(30);
             myList.Add(70);
-            Console.WriteLine("Before");
+            Console.WriteLine("Before position adding");
             myList.Display();
             myList.Add(40, 3);
-            Console.WriteLine("after position adding");
+            Console.WriteLine("After position adding");
+            myList.Display();
+            Console.WriteLine("After removing");
+            myList.Remove(3);
             myList.Display();
         }
     }
