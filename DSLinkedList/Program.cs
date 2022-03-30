@@ -7,7 +7,7 @@ namespace DataStructureProblems
 /// </summary>
     class Program
     {/// <summary>
-     /// UC6 - Delete Last element of linked list Using pop pos
+     /// UC8 - Adding element in between in LinkedList 
      /// </summary>
 
         static void Main(string[] args)
@@ -16,10 +16,11 @@ namespace DataStructureProblems
             myList.Add(56);
             myList.Add(30);
             myList.Add(70);
-
-            Console.WriteLine(myList.Search(30));
-            
-
+            Console.WriteLine("Before");
+            myList.Display();
+            myList.Add(40, 3);
+            Console.WriteLine("after position adding");
+            myList.Display();
         }
     }
 }

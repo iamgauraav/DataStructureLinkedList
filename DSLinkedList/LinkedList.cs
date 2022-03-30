@@ -130,7 +130,7 @@ namespace DataStructureProblems
 
             while (temp != null)
             {
-                if (temp.data == value)
+                if (temp.data ==  value)
                 {
                     Console.WriteLine("\nNode is present");
                     return value;
@@ -162,6 +162,5 @@ namespace DataStructureProblems
                 }
             }
         }
-
     }  
 }
